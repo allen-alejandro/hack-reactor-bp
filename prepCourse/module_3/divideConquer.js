@@ -30,12 +30,39 @@
 
 
 const binarySearch = (array, targetValue) => {
+  let copyArr = array.slice();
+  while (array.length > 1) {
+    let midpoint = Math.floor(array.length / 2);
+    if (array[midpoint] === targetValue) {
+      return copyArr.indexOf(targetValue);
+    } else if (array[midpoint] > targetValue) {
+      array.splice(midpoint, array.length - 1);
+    } else {
+      array.splice(0, midpoint + 1);
+    }
+  }
+  return null;
+}
+
+
+
+//TESTING
+let array = [1, 3, 16, 22, 'fo', 33, 34]
+let targetValue = 16
+
+console.log(binarySearch(array, targetValue));
+
+
+
+/*
+
+const binarySearch = (array, targetValue) => {
   let midpoint = Math.floor(array.length / 2);
-  
+
   if (targetValue >= array[midpoint]) {
     for (let i = midpoint; i < array.length; i++) {
       if (targetValue === array[i]) {
-        return i; 
+        return i;
       }
     }
   } else if (targetValue < array[midpoint]) {
@@ -45,14 +72,7 @@ const binarySearch = (array, targetValue) => {
       }
     }
   }
-  return null; 
+  return null;
 }
 
-
-
-
-//TESTING
-let array = [1, 3, 16, 22, "fo", 33, 34]
-let targetValue = 22
-
-console.log(binarySearch(array, targetValue));
+*/
