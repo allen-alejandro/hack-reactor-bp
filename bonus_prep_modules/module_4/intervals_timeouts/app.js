@@ -1,13 +1,14 @@
 
-// button 
-let contactButton = document.getElementById('button');
+// ------- BUTTON 1 ---------
+let contactButton1 = document.getElementById('button1');
 
 const changeColor = () => {
-  contactButton.style.backgroundColor = randomColor(); 
-  contactButton.style.color = randomColor(); 
+  contactButton1.style.backgroundColor = randomColor(); 
+  contactButton1.style.color = randomColor(); 
   document.body.style.backgroundColor = randomColor();
 }
 
+// --------- RANDOM COLOR FUNCTION ---------
 let randomColor = () => {
   let color = '#'
   let rbg = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'];
@@ -17,7 +18,7 @@ let randomColor = () => {
   return color;
 }
 
-// H2 TRANSFORM 
+// --------- H2 TRANSFORM ---------
 let subheading = document.getElementById('subheading');
 // const transformHeading = () => {
 //   subheading.style.fontSize = "35px"
@@ -25,8 +26,8 @@ let subheading = document.getElementById('subheading');
 // }
 
 
-// EVENT LISTENER
-contactButton.addEventListener('click', function () {
+// ---------BUTTON 1 EVENT LISTENER ---------
+contactButton1.addEventListener('click', function () {
   let twoSeconds = 2 * 1000
 
   setTimeout(function() {
@@ -36,3 +37,19 @@ contactButton.addEventListener('click', function () {
 })
 
 
+// ------- BUTTON 2 (WHOA) EVENT LISTENER ---------
+let button2 = document.getElementById('button2');
+let title = document.getElementById('title')
+let counter = document.getElementById('counter')
+
+button2.addEventListener('click', function() {
+  let count = 0; 
+  let myTimer = setInterval(() => {
+    count++
+    title.style.backgroundColor = randomColor()
+    counter.innerHTML = count; 
+    if (count >= 15) {
+      clearInterval(myTimer)
+    }
+  }, 200);
+})
