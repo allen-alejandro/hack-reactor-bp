@@ -44,6 +44,8 @@ let counter = document.getElementById('counter')
 
 button2.addEventListener('click', function() {
   let count = 0; 
+  button2.innerHTML = 'STOP'
+
   let myTimer = setInterval(() => {
     count++
     title.style.backgroundColor = randomColor()
@@ -52,4 +54,15 @@ button2.addEventListener('click', function() {
       clearInterval(myTimer)
     }
   }, 200);
+
+  contactButton1.addEventListener('click', function () {
+    clearInterval(myTimer)
+    button2.innerHTML = 'START'
+  })
+  
 })
+
+
+
+
+
