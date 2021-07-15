@@ -1,57 +1,43 @@
+let button = document.getElementById('button');
+let clickCount = 0;
+let div = document.querySelector('div'); 
+let body = document.querySelector('body');
 
-// CLICKER EXERCISE 
-let button = document.getElementById('clicker'); 
-
-const onButtonClick = () => {
-  button.textContent = 'Testing'
+let clickAlert = () => {
+  alert('Someone Clicked The Button');
 }
 
-// anonymous func version 
-button.addEventListener('click', () => {
-  button.textContent = 'Testing'
-}); 
-
-// calling functiion on click 
-button.addEventListener('click', onButtonClick);
-
-
-// CAT CHALLENGE
-let catPic = document.getElementById('cat-pic')
-
-const meow = () => {
-  document.getElementById('cat-chat').textContent = 'Meow'; 
+let clickEventInfo = (event) => {
+  console.log(event);
+  console.log(event.target);
 }
 
-catPic.addEventListener('click', meow);
-
-// EVENT PROPERTIES - WINSTON EXERCISE
-let face = document.getElementById('face')
-
-const onMouseMove = function(e) {
-  // document.getElementById('message').textContent += 'mooooove'
-  console.log(e);
-
-  let beard = document.createElement('div');
-  beard.className = 'beard';
-  document.body.appendChild(beard); 
-  beard.style.top = e.clientY + 'px'; 
-  beard.style.left = e.clientX + 'px';
+let countClicks = (event) => {
+  clickCount++;
+  event.target.textContent = clickCount; 
 }
 
-face.addEventListener('mousemove', onMouseMove)
+//  -----> version 1
+// let logText = (event) => {
+//   console.log(event.target.textContent);
+// }
 
-// EVENT PROPERTIES - CAT-STACHE EXERCISE
-
-let cat = document.getElementById('cat-pic2');
-let mustache = document.getElementById('mustache-pic')
-
-const onMouseClick = e => {
-  // logs x(left) and y(top)
-  console.log(e);
-  mustache.style.top = e.clientY + 'px'
-  mustache.style.left = (e.clientX - 50) + 'px'
-  
+//  -----> version 2
+let logText = function () {
+  // console.log(event.target.textContent);
+  alert('You clicked on the body')
 }
 
 
-cat.addEventListener('click', onMouseClick);
+body.addEventListener('click', function () {
+  alert('You are really pushing my buttons')
+})
+
+button.addEventListener('click', logText);
+
+// button.removeEventListener('click', clickAlert)
+
+ 
+
+
+ 
