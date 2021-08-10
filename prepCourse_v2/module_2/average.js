@@ -40,3 +40,8 @@ assertFunc(testResult2, expectedResult2, 'returns the average of array of number
 
 
 console.log(average([1, 2, 3, 4]));
+
+
+
+
+

@@ -16,14 +16,45 @@
 // sumArray([1, 2, 3, 4, 5]) => 15
 
 
-var sumArray = function(arr) {
-  if (arr.length === 0) {
+
+
+
+
+
+let addArray = array => {
+  if (array.length === 0) {
     return 0; 
   } else {
-    return arr.pop() + sumArray(arr);
+    return array.pop() + addArray(array)
   }
-};
+}
 
 
 
-console.log(sumArray([10, 20]));
+
+
+
+console.log(addArray([2, 4, 6, 8]));
+
+
+
+
+
+
+
+
+
+
+
+
+// var sumArray = function(arr) {
+//   if (arr.length === 0) {
+//     return 0; 
+//   } else {
+//     return arr.pop() + sumArray(arr);
+//   }
+// };
+
+
+
+// console.log(sumArray([10, 20]));
